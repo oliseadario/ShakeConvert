@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <AssemblyName>ShakeConvert</AssemblyName>
+    <RootNamespace>ShakeConvert</RootNamespace>
+    <StartupObject>ShakeConvert.App</StartupObject>
+    <Version>1.1.0</Version>
+    <Product>ShakeConvert</Product>
+    <Company>ShakeConvert</Company>
+    <Description>Drag a file, shake it, convert it</Description>
+    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SatelliteResourceLanguages>en;it</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- floating versions: NuGet picks the latest compatible stable release -->
+    <PackageReference Include="Magick.NET-Q8-x64" Version="14.*" />
+    <PackageReference Include="PDFsharp" Version="6.1.*" />
+    <PackageReference Include="PdfPig" Version="0.1.*" />
+    <PackageReference Include="Markdig" Version="0.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="engine\pdfengine.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Update="engine\omni.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Update="engine\clipengine.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Update="engine\clip_to_psd.py" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Update="engine\clip_to_psd.LICENSE" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\app.ico" />
+    <Resource Include="Assets\app-256.png" />
+    <Resource Include="Assets\tray-light.ico" />
+    <Resource Include="Assets\tray-dark.ico" />
+  </ItemGroup>
+
+</Project>
